@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KSiP RP — Terminal Służbowy</title>
+  <meta name="theme-color" content="#07111d">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="loginView" class="login-screen">
+  <div class="login-shell">
+    <div class="govbar">
+      <div class="seal">RP</div>
+      <div>
+        <div class="sysname">KSiP</div>
+        <div class="sysdesc">KRAJOWY SYSTEM INFORMACYJNY POLICJI — ROLEPLAY</div>
+      </div>
+    </div>
+
+    <div class="security-strip">
+      <span class="pulse"></span>
+      ŚRODOWISKO SŁUŻBOWE • DOSTĘP AUTORYZOWANY
+    </div>
+
+    <div class="login-card">
+      <div class="terminal-title">LOGOWANIE DO TERMINALA</div>
+      <p class="muted">Wprowadź dane konta funkcjonariusza.</p>
+
+      <form id="loginForm">
+        <label>IDENTYFIKATOR SŁUŻBOWY
+          <input id="login" value="admin" autocomplete="username">
+        </label>
+        <label>HASŁO
+          <input id="password" type="password" value="admin123" autocomplete="current-password">
+        </label>
+        <button class="primary">ZALOGUJ</button>
+        <div id="loginError" class="form-error"></div>
+      </form>
+
+      <div class="disclaimer">
+        System demonstracyjny przeznaczony wyłącznie do rozgrywki Roleplay. Nie jest oficjalnym systemem Policji.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="appView" class="app hidden">
+  <aside>
+    <div class="brand">
+      <div class="brand-mark">KSiP</div>
+      <div class="brand-sub">SYSTEM OPERACYJNY RP</div>
+    </div>
+
+    <div class="unit-block">
+      <span>JEDNOSTKA</span>
+      <b>KOMENDA STOŁECZNA POLICJI</b>
+      <small>Terminal nr 01</small>
+    </div>
+
+    <nav>
+      <button data-page="dashboard" class="active">▦ Pulpit operacyjny</button>
+      <button data-page="citizens">👤 Kartoteka osób</button>
+      <button data-page="vehicles">🚔 Rejestr pojazdów</button>
+      <button data-page="wanted">⚠ Poszukiwania</button>
+      <button data-page="reports">🗂 Notatki i wpisy</button>
+      <button data-page="admin" id="adminNav">⚙ Administracja</button>
+    </nav>
+
+    <div class="officer-card">
+      <div class="avatar">F</div>
+      <div>
+        <b id="officerName"></b>
+        <small id="officerMeta"></small>
+      </div>
+      <button id="logoutBtn">Wyloguj</button>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">KRAJOWY SYSTEM INFORMACYJNY POLICJI</div>
+        <h1 id="pageTitle">Pulpit operacyjny</h1>
+      </div>
+      <div class="header-right">
+        <div class="secure"><span class="pulse"></span> POŁĄCZENIE BEZPIECZNE</div>
+        <div class="clock" id="clock"></div>
+      </div>
+    </header>
+
+    <section id="content"></section>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
